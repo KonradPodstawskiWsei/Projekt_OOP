@@ -1,0 +1,29 @@
+﻿<Window x:Class="Projekt_OOP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+        xmlns:local="clr-namespace:Projekt_OOP"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+
+        <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="0,1" CornerRadius="10">
+            <wpf:ChromiumWebBrowser x:Name="Browser" Margin="125,50,0,125" Visibility="Hidden"/>
+        </Border>
+        <Button x:Name="dislike" Content="👎" HorizontalAlignment="Left" Margin="620,346,0,0" VerticalAlignment="Top" FontSize="36" Background="#FFA80000" BorderBrush="#FFA80000" Foreground="#FFFC7C7C" Click="dislike_Click"/>
+        <Button x:Name="like" Content="👍" HorizontalAlignment="Left" Margin="241,346,0,0" VerticalAlignment="Top" FontSize="36" BorderBrush="#FF269F00" Background="#FF269F00" Foreground="#FFA2FFAE" RenderTransformOrigin="1.029,0.463" Click="like_Click"/>
+        <Label x:Name="VideoTitleComponent" Content="Video title" HorizontalAlignment="Left" VerticalAlignment="Top" Width="675" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" FontWeight="Bold" Margin="125,0,0,0"/>
+        <ListBox x:Name="approve" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,49,675,281"/>
+        <ListBox x:Name="Nonapprove" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,175,675,155"/>
+        <ListBox x:Name="allList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,305,675,25"/>
+        <Label Content="Aprove" HorizontalAlignment="Left" Margin="34,23,0,0" VerticalAlignment="Top"/>
+        <Label Content="NonAprove" HorizontalAlignment="Left" Margin="-4,153,0,0" VerticalAlignment="Top" Width="125" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Content="All
+               " HorizontalAlignment="Left" Margin="-4,279,0,0" VerticalAlignment="Top" Width="125" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Button x:Name="checker" Content="Start checking the videos" HorizontalAlignment="Left" Margin="254,165,0,0" VerticalAlignment="Top" FontSize="36" BorderBrush="#FF19C102" Foreground="Black" Click="Button_Click_1" Background="White" FontWeight="Bold" BorderThickness="0,0,0,1"/>
+        <Button x:Name="next" Content="⬇️" HorizontalAlignment="Left" Margin="420,346,0,0" VerticalAlignment="Top" FontSize="36" IsCancel="True" Background="#FF0899CA" Foreground="#FF08E3FF" Width="48" Click="next_Click"/>
+
+    </Grid>
+</Window>
