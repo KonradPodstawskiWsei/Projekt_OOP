@@ -10,7 +10,6 @@ namespace Projekt_OOP
     /// </summary>
     public partial class MainWindow : Window
     {
-
         public int actualMovieNumber = 0;
         public string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Projekt_OOP;Integrated Security=True";
         public List<Movie> movies = new List<Movie>();
@@ -209,8 +208,6 @@ namespace Projekt_OOP
                 this.Browser.Address = to;
             } else
             {
-
-
                 List<string> moviesLinks = new List<string>();
                 List<string> moviesTtiles = new List<string>();
 
@@ -251,7 +248,6 @@ namespace Projekt_OOP
                 this.Browser.Address = to;
             }
         }
-
 
         /// <summary>
         /// dodaje aktulany film do UnAppprove
@@ -328,7 +324,6 @@ namespace Projekt_OOP
             }
 
             is_player = true;
-
         }
     }
 }
