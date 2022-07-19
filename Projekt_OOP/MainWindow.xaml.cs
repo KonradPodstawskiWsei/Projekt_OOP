@@ -108,7 +108,6 @@ namespace Projekt_OOP
             string path = Directory.GetCurrentDirectory();
             string to = path + "\\youtube_player.html";
 
-            //string link = "https://www.youtube.com/embed//DFyVgCc-vB4";
             string link = moviesLinks[actualMovieNumber];
 
             string player_template = @"<style>
@@ -231,11 +230,17 @@ namespace Projekt_OOP
                     if (dislikeMovie.DisLikeMovieID == movie.FilmID)
                     {
                         disLikeMoviesName.Add(movie.MovieName);
+
                     }
                 }
             }
 
             Nonapprove.ItemsSource = disLikeMoviesName;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
