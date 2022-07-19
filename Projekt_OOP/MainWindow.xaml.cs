@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.IO;
-using System.Data.SqlClient;
 
 namespace Projekt_OOP
 {
@@ -73,6 +69,11 @@ namespace Projekt_OOP
             allList.ItemsSource = moviesTitle;
         }
 
+        /// <summary>
+        /// Ta funkcja uwidacznia przegladarke i ustawia ja na pierwsszy aderes z bazy danych
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.Browser.Visibility = Visibility.Visible;
@@ -115,6 +116,11 @@ namespace Projekt_OOP
 
         }
 
+        /// <summary>
+        /// Ta funkcja dodaje aktulany film do appprove
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void like_Click(object sender, RoutedEventArgs e)
         {
 
@@ -148,6 +154,12 @@ namespace Projekt_OOP
             approve.ItemsSource = LikeMoviesName;
         }
 
+        /// <summary>
+        /// Ta funkcja zmiena aktualny film o jeden index do gory
+        /// w razie gdyby index osiagnal max to licznie zaczyna sie od nowa
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void next_Click(object sender, RoutedEventArgs e)
         {
             if (!is_player)
@@ -240,6 +252,12 @@ namespace Projekt_OOP
             }
         }
 
+
+        /// <summary>
+        /// dodaje aktulany film do UnAppprove
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dislike_Click(object sender, RoutedEventArgs e)
         {
             List<Movies> movies;
