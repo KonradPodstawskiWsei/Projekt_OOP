@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Projekt_OOP
 {
-    public class Model: DbContext
-    {
+	public class Model : DbContext
+	{
 		public DbSet<MovieTypes> MovieTypes { get; set; }
 		public DbSet<Movies> Movies { get; set; }
 		public DbSet<LikeMovies> LikeMovies { get; set; }
@@ -30,7 +30,7 @@ namespace Projekt_OOP
 		public List<Movies> movies { get; set; } = new List<Movies>();
 
 		public string TypeName { get; set; }
-}
+	}
 
 	public class Movies
 	{
@@ -66,27 +66,3 @@ namespace Projekt_OOP
 
 	}
 }
-
-/*
-CREATE TABLE MovieTypes (
-	MovieTypeID int primary key,
-	TypeName varchar(50) NOT NULL
-)
-
-CREATE TABLE Movies (
-	FilmID int primary key,
-	MovieTypeID int foreign key references MovieTypes(MovieTypeID),
-	MovieName varchar(50) NOT NULL,
-	MovieLink varchar(250) NOT NULL
-)
-
-CREATE TABLE LikeMovies (
-	LikeMovieID int primary key,
-	MovieID int foreign key references Movies(FilmID)
-)
-
-CREATE TABLE DisLikeMovies (
-	DisLikeMovieID int primary key,
-	MovieID int foreign key references Movies(FilmID)
-)
-*/
