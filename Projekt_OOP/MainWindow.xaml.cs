@@ -301,7 +301,6 @@ namespace Projekt_OOP
 
             List<Movies> movies = new List<Movies>();
             List<string> moviesTitle = new List<string>();
-           // List<string> moviesLinks = new List<string>();
 
             List<LikeMovies> likeMovies = new List<LikeMovies>();
             List<string> disLikeMoviesName = new List<string>();
