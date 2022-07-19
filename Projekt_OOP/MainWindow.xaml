@@ -18,9 +18,9 @@
         <ListBox x:Name="approve" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,49,675,281"/>
         <ListBox x:Name="Nonapprove" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,175,675,155"/>
         <ListBox x:Name="allList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,305,675,25"/>
-        <Label Content="Aprove" HorizontalAlignment="Left" Margin="34,23,0,0" VerticalAlignment="Top"/>
-        <Label Content="NonAprove" HorizontalAlignment="Left" Margin="-4,153,0,0" VerticalAlignment="Top" Width="125" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Label Content="All
+        <Label x:Name="aproveName" Content="Aprove" HorizontalAlignment="Left" Margin="34,23,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="nonAproveName" Content="NonAprove" HorizontalAlignment="Left" Margin="-4,153,0,0" VerticalAlignment="Top" Width="125" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label x:Name="allListName" Content="All
                " HorizontalAlignment="Left" Margin="-4,279,0,0" VerticalAlignment="Top" Width="125" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Button x:Name="checker" Content="Start checking the videos" HorizontalAlignment="Left" Margin="254,165,0,0" VerticalAlignment="Top" FontSize="36" BorderBrush="#FF19C102" Foreground="Black" Click="Button_Click_1" Background="White" FontWeight="Bold" BorderThickness="0,0,0,1"/>
         <Button x:Name="next" Content="⬇️" HorizontalAlignment="Center" Margin="0,357,0,0" VerticalAlignment="Top" FontSize="36" IsCancel="True" Background="#FF0899CA" Foreground="#FF08E3FF" Width="48" Click="next_Click" RenderTransformOrigin="0.591,-0.338"/>

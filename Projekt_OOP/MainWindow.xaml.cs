@@ -26,6 +26,8 @@ namespace Projekt_OOP
         public int actualMovieNumber = 0;
         public string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Projekt_OOP;Integrated Security=True";
         public List<Movie> movies = new List<Movie>();
+        public List<string> GlobalmoviesLinks = new List<string>();
+        public bool is_player = false;
 
         public MainWindow()
         {
@@ -161,36 +163,39 @@ namespace Projekt_OOP
 
         private void next_Click(object sender, RoutedEventArgs e)
         {
-            List<Movies> movies;
-            using (Model db = new Model(connectionString))
+            if (!is_player)
             {
-                movies = db.Movies.ToList();
-            }
+                List<Movies> movies;
+                using (Model db = new Model(connectionString))
+                {
+                    movies = db.Movies.ToList();
+                }
 
-            if (actualMovieNumber == movies.Count-1)
-            {
-                this.actualMovieNumber = 0;
-            } else
-            {
-                this.actualMovieNumber += 1;
-            }
+                if (actualMovieNumber == movies.Count - 1)
+                {
+                    this.actualMovieNumber = 0;
+                }
+                else
+                {
+                    this.actualMovieNumber += 1;
+                }
 
-            List<string> moviesLinks = new List<string>();
-            List<string> moviesTtiles = new List<string>();
-            foreach (Movies movie in movies)
-            {
-                moviesLinks.Add(movie.MovieLink);
-                moviesTtiles.Add(movie.MovieName);
-            }
+                List<string> moviesLinks = new List<string>();
+                List<string> moviesTtiles = new List<string>();
+                foreach (Movies movie in movies)
+                {
+                    moviesLinks.Add(movie.MovieLink);
+                    moviesTtiles.Add(movie.MovieName);
+                }
 
-            VideoTitleComponent.Content = moviesTtiles[actualMovieNumber];
+                VideoTitleComponent.Content = moviesTtiles[actualMovieNumber];
 
-            string path = Directory.GetCurrentDirectory();
-            string to = path + "\\youtube_player.html";
+                string path = Directory.GetCurrentDirectory();
+                string to = path + "\\youtube_player.html";
 
-            string link = moviesLinks[actualMovieNumber];
+                string link = moviesLinks[actualMovieNumber];
 
-            string player_template = @"<style>
+                string player_template = @"<style>
                                         * {
                                             margin: 0;
                                             padding: 0;
@@ -198,11 +203,54 @@ namespace Projekt_OOP
                                         }</style>
             <iframe width='100%' height='100%' src='{link}' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard - write; encrypted - media; gyroscope; picture -in-picture' allowfullscreen></iframe>";
 
-            string text = player_template;
-            text = text.Replace("{link}", link);
-            File.WriteAllText(to, text);
+                string text = player_template;
+                text = text.Replace("{link}", link);
+                File.WriteAllText(to, text);
 
-            this.Browser.Address = to;
+                this.Browser.Address = to;
+            } else
+            {
+
+
+                List<string> moviesLinks = new List<string>();
+                List<string> moviesTtiles = new List<string>();
+
+                if (actualMovieNumber == GlobalmoviesLinks.Count - 1)
+                {
+                    this.actualMovieNumber = 0;
+                }
+                else
+                {
+                    this.actualMovieNumber += 1;
+                }
+
+                foreach (string movie in GlobalmoviesLinks)
+                {
+                    moviesLinks.Add(movie);
+                    moviesTtiles.Add("");
+                }
+
+                VideoTitleComponent.Content = "";
+
+                string path = Directory.GetCurrentDirectory();
+                string to = path + "\\youtube_player.html";
+
+                string link = GlobalmoviesLinks[actualMovieNumber];
+
+                string player_template = @"<style>
+                                        * {
+                                            margin: 0;
+                                            padding: 0;
+                                            border: 0;
+                                        }</style>
+            <iframe width='100%' height='100%' src='{link}' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard - write; encrypted - media; gyroscope; picture -in-picture' allowfullscreen></iframe>";
+
+                string text = player_template;
+                text = text.Replace("{link}", link);
+                File.WriteAllText(to, text);
+
+                this.Browser.Address = to;
+            }
         }
 
         private void dislike_Click(object sender, RoutedEventArgs e)
@@ -240,6 +288,37 @@ namespace Projekt_OOP
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            actualMovieNumber = 0;
+            approve.Visibility = Visibility.Hidden;
+            Nonapprove.Visibility = Visibility.Hidden;
+            allList.Visibility = Visibility.Hidden;
+
+            aproveName.Visibility = Visibility.Hidden;
+            nonAproveName.Visibility = Visibility.Hidden;
+            allListName.Visibility = Visibility.Hidden;
+            like.Visibility = Visibility.Hidden;
+            dislike.Visibility = Visibility.Hidden;
+
+            List<Movies> movies = new List<Movies>();
+            List<string> moviesTitle = new List<string>();
+           // List<string> moviesLinks = new List<string>();
+
+            List<LikeMovies> likeMovies = new List<LikeMovies>();
+            List<string> disLikeMoviesName = new List<string>();
+
+            using (Model db = new Model(connectionString))
+            {
+                movies = db.Movies.ToList();
+
+                likeMovies = db.LikeMovies.ToList();
+            }
+
+            foreach (LikeMovies likeMovie in likeMovies)
+            {
+                GlobalmoviesLinks.Add(likeMovie.movie.MovieLink.ToString());
+            }
+
+            is_player = true;
 
         }
     }
