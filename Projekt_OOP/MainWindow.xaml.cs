@@ -291,6 +291,11 @@ namespace Projekt_OOP
             Nonapprove.ItemsSource = disLikeMoviesName;
         }
 
+        /// <summary>
+        /// ta funkcja uruchamia player kotry ma tylko zalikowane filmy
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             actualMovieNumber = 0;
