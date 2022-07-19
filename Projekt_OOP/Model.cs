@@ -53,6 +53,7 @@ namespace Projekt_OOP
 
 	public class LikeMovies
 	{
+
 		[Key]
 		public int LikeMovieID { get; set; }
 		public int MovieID { get; set; }

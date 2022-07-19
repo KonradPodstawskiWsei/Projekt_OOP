@@ -1,19 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.IO;
-using System.Data.SqlClient;
 
 namespace Projekt_OOP
 {
@@ -79,11 +67,11 @@ namespace Projekt_OOP
             allList.ItemsSource = moviesTitle;
         }
 
-        private void films_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Ta funkcja uwidacznia przegladarke i ustawia ja na pierwsszy aderes z bazy danych
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.Browser.Visibility = Visibility.Visible;
@@ -108,7 +96,6 @@ namespace Projekt_OOP
             string path = Directory.GetCurrentDirectory();
             string to = path + "\\youtube_player.html";
 
-            //string link = "https://www.youtube.com/embed//DFyVgCc-vB4";
             string link = moviesLinks[actualMovieNumber];
 
             string player_template = @"<style>
@@ -127,6 +114,11 @@ namespace Projekt_OOP
 
         }
 
+        /// <summary>
+        /// Ta funkcja dodaje aktulany film do appprove
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void like_Click(object sender, RoutedEventArgs e)
         {
 
@@ -160,6 +152,12 @@ namespace Projekt_OOP
             approve.ItemsSource = LikeMoviesName;
         }
 
+        /// <summary>
+        /// Ta funkcja zmiena aktualny film o jeden index do gory
+        /// w razie gdyby index osiagnal max to licznie zaczyna sie od nowa
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void next_Click(object sender, RoutedEventArgs e)
         {
             List<Movies> movies;
@@ -206,6 +204,12 @@ namespace Projekt_OOP
             this.Browser.Address = to;
         }
 
+
+        /// <summary>
+        /// dodaje aktulany film do UnAppprove
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dislike_Click(object sender, RoutedEventArgs e)
         {
             List<Movies> movies;
