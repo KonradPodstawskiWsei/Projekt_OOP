@@ -43,9 +43,9 @@ namespace Projekt_OOP
 
             foreach (Movies movie in movies)
             {
-                foreach(LikeMovies likeMovie in likeMovies)
+                foreach (LikeMovies likeMovie in likeMovies)
                 {
-                    if ( likeMovie.LikeMovieID == movie.FilmID )
+                    if (likeMovie.LikeMovieID == movie.FilmID)
                     {
                         LikeMoviesName.Add(movie.MovieName);
                     }
@@ -206,7 +206,8 @@ namespace Projekt_OOP
                 File.WriteAllText(to, text);
 
                 this.Browser.Address = to;
-            } else
+            }
+            else
             {
                 List<string> moviesLinks = new List<string>();
                 List<string> moviesTtiles = new List<string>();
