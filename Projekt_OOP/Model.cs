@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Projekt_OOP
 {
+	/// <summary>
+	/// Model struktry bazy dancyh
+	/// </summary>
 	public class Model : DbContext
 	{
 		public DbSet<MovieTypes> MovieTypes { get; set; }
@@ -21,7 +24,10 @@ namespace Projekt_OOP
 			options.UseSqlServer(this.ConnectionString);
 		}
 	}
-
+	
+	/// <summary>
+	/// reprezentacja w kodzie klasy MovieType
+	/// </summary>
 	public class MovieTypes
 	{
 		[Key]
@@ -32,6 +38,9 @@ namespace Projekt_OOP
 		public string TypeName { get; set; }
 	}
 
+	/// <summary>
+	/// reprezentacja w kodzie klasy Movies
+	/// </summary>
 	public class Movies
 	{
 		[Key]
@@ -46,7 +55,9 @@ namespace Projekt_OOP
 
 	}
 
-
+	/// <summary>
+	/// reprezentacja w kodzie klasy LikeMovies
+	/// </summary>
 	public class LikeMovies
 	{
 
@@ -57,6 +68,9 @@ namespace Projekt_OOP
 
 	}
 
+	/// <summary>
+	/// reprezentacja w kodzie klasy DisLikeMovies
+	/// </summary>
 	public class DisLikeMovies
 	{
 		[Key]
