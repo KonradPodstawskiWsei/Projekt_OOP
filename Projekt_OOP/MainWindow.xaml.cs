@@ -310,7 +310,6 @@ namespace Projekt_OOP
             List<string> moviesTitle = new List<string>();
 
             List<LikeMovies> likeMovies = new List<LikeMovies>();
-            List<string> disLikeMoviesName = new List<string>();
 
             using (Model db = new Model(connectionString))
             {
